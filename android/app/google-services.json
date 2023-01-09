@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5943082463",
+    "project_id": "almisa-ticaret",
+    "storage_bucket": "almisa-ticaret.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5943082463:android:84e96b3866fd87907e586a",
+        "android_client_info": {
+          "package_name": "com.example.tedarikq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5943082463-qeba0qidlnod5dah9lm75vj1kjbb17hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV0MtQrsV8glOR82AtKO9WybAN9JAobqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5943082463-qeba0qidlnod5dah9lm75vj1kjbb17hu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
