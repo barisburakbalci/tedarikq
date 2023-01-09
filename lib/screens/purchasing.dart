@@ -32,7 +32,17 @@ class PurchasingScreenState extends State<PurchasingScreen> {
                           itemBuilder: ((context, index) {
                             final record =
                                 stock[index].data() as Map<String, dynamic>;
-                            return Text('${record["name"]}');
+                            return InkWell(
+                              onTap: () {
+                                print('clicked on ${record["name"]}');
+                              },
+                              child: ListTile(
+                                leading: const Icon(Icons.text_fields),
+                                title: Text(
+                                  '${record["name"]}',
+                                ),
+                              ),
+                            );
                           })),
                     );
                   } else {
