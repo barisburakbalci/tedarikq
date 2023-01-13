@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'theme.dart';
+import 'components/navbar.dart';
 import 'screens/sales.dart';
 import 'screens/purchasing.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,9 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: myTheme,
       home: FutureBuilder(
         future: _firebaseInitialization,
         builder: (context, snapshot) {
@@ -50,15 +50,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Container(
-              color: Colors.red,
+              color: Colors.white,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -91,6 +88,9 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: const Navbar(),
+      extendBody: false,
+      extendBodyBehindAppBar: false,
     );
   }
 }

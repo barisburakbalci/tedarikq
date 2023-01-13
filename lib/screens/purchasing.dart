@@ -34,7 +34,7 @@ class PurchasingScreenState extends State<PurchasingScreen> {
                                 stock[index].data() as Map<String, dynamic>;
                             return InkWell(
                               onTap: () {
-                                print('clicked on ${record["name"]}');
+                                debugPrint('clicked on ${record["name"]}');
                               },
                               child: ListTile(
                                 leading: const Icon(Icons.text_fields),
