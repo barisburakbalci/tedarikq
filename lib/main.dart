@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'screens/home.dart';
 import 'theme.dart';
-import 'components/navbar.dart';
-import 'screens/sales.dart';
-import 'screens/purchasing.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -26,71 +24,19 @@ class MyApp extends StatelessWidget {
       home: FutureBuilder(
         future: _firebaseInitialization,
         builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(
-              child: Text('Firebase error'),
-            );
-          } else if (snapshot.hasData) {
-            return const MyHomePage(title: 'Almisa Ticaret');
-          } else {
+          if (snapshot.connectionState != ConnectionState.done) {
             return const Center(
               child: CircularProgressIndicator(),
             );
+          } else if (snapshot.hasData) {
+            return const HomeScreen();
           }
+
+          return const Center(
+            child: Text('Firebase error'),
+          );
         },
       ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Container(
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: (() {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((context) => const SalesScreen()),
-                        ),
-                      );
-                    }),
-                    child: const Text('Sales screen'),
-                  ),
-                  ElevatedButton(
-                    onPressed: (() {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((context) => const PurchasingScreen()),
-                        ),
-                      );
-                    }),
-                    child: const Text('Purchasing screen'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: const Navbar(),
-      extendBody: false,
-      extendBodyBehindAppBar: false,
     );
   }
 }

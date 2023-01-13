@@ -46,7 +46,11 @@ class PurchasingScreenState extends State<PurchasingScreen> {
                           })),
                     );
                   } else {
-                    return const Text('no data');
+                    return const Flexible(
+                      child: Center(
+                        child: Text('No data'),
+                      ),
+                    );
                   }
                 },
               ),
