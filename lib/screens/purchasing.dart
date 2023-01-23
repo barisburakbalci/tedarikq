@@ -17,7 +17,7 @@ class PurchasingScreenState extends State<PurchasingScreen> {
   void initState() {
     super.initState();
     channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8080/ws'));
-    channel.stream.listen(print);
+    channel.stream.listen((data) => debugPrint(data));
   }
 
   @override
